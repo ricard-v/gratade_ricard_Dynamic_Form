@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace D_Form.Library
 {
-    class OpenQuestion : QuestionBase
+    public sealed class OpenQuestion : QuestionBase
     {
 
     }
