@@ -19,8 +19,8 @@ namespace D_Form.Tests
         public void check_default_constructor()
         {
             DForm form = new DForm();
-            Assert.That( form.Title, Is.EqualTo( "Undefined" ) );
-            Assert.That( form.Author, Is.EqualTo( "Undefined" ) );
+            Assert.That( form.Title, Is.EqualTo( "Undefined Title" ) );
+            Assert.That( form.Author, Is.EqualTo( "Undefined Author" ) );
             Assert.That( form.Version, Is.EqualTo( 0 ) );
             Assert.That( form.Created, Is.EqualTo( form.LastModified ) );
         }
@@ -50,7 +50,7 @@ namespace D_Form.Tests
         [Test]
         public void check_title_can_be_changed( )
         {
-            Assert.NotNull( typeof( DForm ).GetProperty( "Title" ).GetSetMethod() );
+            Assert.NotNull( typeof( DForm ).GetProperty( "Title" ).GetSetMethod(), "Title Propery SHOULD be MODIFIABLE" );
         }
 
         [Test]
@@ -81,14 +81,14 @@ namespace D_Form.Tests
         [TestCase( "Title 2" )]
         [TestCase( "Title 3" )]
         [TestCase( "Super Title" )]
-        public void check_version_and_last_modified_are_updated(string title)
+        public void check_version_and_last_modified_are_updated_if_title_is_modified( string title )
         {
             DForm form = new DForm();
             DateTime previousLastModified = form.LastModified;
             int previousVersion = form.Version;
-            Thread.Sleep( TimeSpan.FromMilliseconds( 10 ) );
+            Thread.Sleep( TimeSpan.FromMilliseconds( 1 ) );
             form.Title = title;
-            Assert.That( form.Title, Is.EqualTo( title )  );
+            Assert.That( form.Title, Is.EqualTo( title ) );
             Assert.That( form.LastModified, Is.GreaterThan( previousLastModified ), "Form LastModified = " + form.LastModified + " and Previous LastModified = " + previousLastModified );
             Assert.That( form.Version, Is.GreaterThan( previousVersion ), "Form Version = " + form.Version + " and Previous = " + previousVersion );
         }

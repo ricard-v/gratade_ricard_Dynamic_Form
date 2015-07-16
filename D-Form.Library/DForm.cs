@@ -55,7 +55,7 @@ namespace D_Form.Library
         }
 
         public DForm()
-            : this( "Undefined", "Undefined" )
+            : this( "Undefined Title", "Undefined Author" )
         {
         }
 
