@@ -12,6 +12,22 @@ namespace D_Form.Tests
     public sealed class DFormQuestionsChecker
     {
         [Test]
+        public void check_contains_feature()
+        {
+            DForm form = new DForm();
+            OpenQuestion q1 = new OpenQuestion( "Q1" );
+            OpenQuestion q2 = new OpenQuestion( "Q2" );
+            OpenQuestion q3 = new OpenQuestion( "Q3" );
+            OpenQuestion q4 = new OpenQuestion( "Q4" );
+            
+            q4.Parent = q3;
+            q3.Parent = q2;
+            q2.Parent = q1;
+
+            Assert.IsTrue( q1.Contains( q4 ) );
+        }
+
+        [Test]
         public void check_questions_are_not_null_at_construction()
         {
             DForm form = new DForm();
@@ -33,16 +49,18 @@ namespace D_Form.Tests
         [Test]
         public void check_questions_add_feature()
         {
-            DForm form = new DForm("Title", "Nunit");
+            DForm form = new DForm( "Title", "Nunit" );
 
             Assert.Throws<ArgumentNullException>( () => form.Questions.AddNewQuestion( null ) );
 
-            QuestionBase q1 = new OpenQuestion("First Question");
+            QuestionBase q1 = new OpenQuestion( "First Question" );
             QuestionBase q2 = new OpenQuestion( "Second Question" );
             form.Questions.AddNewQuestion( q1 );
             Assert.IsTrue( form.Questions.Contains( q1 ) );
             Assert.Throws<ArgumentException>( () => form.Questions.AddNewQuestion( q1 ) );
             Assert.DoesNotThrow( () => form.Questions.AddNewQuestion( q2 ) );
+            Assert.Throws<ArgumentException>( () => q2.AddNewQuestion( q1 ) );
+
         }
 
         [Test]
@@ -56,7 +74,9 @@ namespace D_Form.Tests
             QuestionBase q2 = new OpenQuestion( "Second Question" );
             form.Questions.AddNewQuestion( q1 );
             Assert.DoesNotThrow( () => form.Questions.RemoveQuestion( q1 ) );
+            Assert.IsNull( q1.Parent );
             Assert.IsFalse( form.Questions.Contains( q1 ) );
         }
+      
     }
 }
