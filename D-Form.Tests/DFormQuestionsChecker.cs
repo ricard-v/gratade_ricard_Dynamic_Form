@@ -19,7 +19,7 @@ namespace D_Form.Tests
             OpenQuestion q2 = new OpenQuestion( "Q2" );
             OpenQuestion q3 = new OpenQuestion( "Q3" );
             OpenQuestion q4 = new OpenQuestion( "Q4" );
-            
+
             q4.Parent = q3;
             q3.Parent = q2;
             q2.Parent = q1;
@@ -59,8 +59,17 @@ namespace D_Form.Tests
             Assert.IsTrue( form.Questions.Contains( q1 ) );
             Assert.Throws<ArgumentException>( () => form.Questions.AddNewQuestion( q1 ) );
             Assert.DoesNotThrow( () => form.Questions.AddNewQuestion( q2 ) );
-            Assert.Throws<ArgumentException>( () => q2.AddNewQuestion( q1 ) );
+        }
 
+        [Test]
+        public void check_question_parent_changing()
+        {
+            DForm form = new DForm( "Title", "Nunit" );
+            QuestionBase q1 = new OpenQuestion( "First Question" );
+            QuestionBase q2 = new OpenQuestion( "Second Question" );
+
+            q1.Parent = form.Questions;
+            Assert.IsTrue( form.Questions.Contains( q1 ) );
         }
 
         [Test]

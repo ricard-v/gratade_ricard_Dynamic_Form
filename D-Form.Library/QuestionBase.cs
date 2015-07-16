@@ -32,6 +32,10 @@ namespace D_Form.Library
             }
             set
             {
+                if( _parent != null )
+                    _parent.Questions.Remove( this );
+                if( value != null )
+                    value.Questions.Add( this );
                 _parent = value;
             }
         }
@@ -79,23 +83,18 @@ namespace D_Form.Library
         {
             if( question == null )
                 throw new ArgumentNullException( "question", "question MUST NOT be NULL!" );
-            if (question.Parent != null)
-                throw new ArgumentException( "question", "question CANNOT be ADDED as IT ALREADY HAS A PARENT!" );
             if( Contains( question ) )
                 throw new ArgumentException( "question", "question CANNOT be ADDED as it ALREADY EXISTS!" );
             question.Parent = this;
-            Questions.Add( question );
         }
 
         public void RemoveQuestion( QuestionBase question )
         {
             if( question == null )
                 throw new ArgumentNullException( "question", "question MUST NOT be NULL!" );
-
             if( !Contains( question ) )
                 throw new ArgumentException( "question", "question CANNOT BE REMOVED as it DOES NOT EXIST" );
             question.Parent = null;
-            Questions.Remove( question );
         }
     }
 }
