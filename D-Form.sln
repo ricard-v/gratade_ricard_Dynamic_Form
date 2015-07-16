@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D-Form.Tests", "D-Form.Tests\D-Form.Tests.csproj", "{0292E35A-B149-4DC0-8279-C1E801262B41}"
 EndProject
@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1B8C8E
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D-Form.Library", "D-Form.Library\D-Form.Library.csproj", "{9C983AF1-4D57-4983-A117-4753825DF62F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D-Form.GUI", "D-Form.GUI\D-Form.GUI.csproj", "{2B74821D-4624-42F4-906D-35887F49EAB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D-Form.GUI", "D-Form.GUI\D-Form.GUI.csproj", "{D9F5F808-C758-4EBC-A489-C37F1FC7EBCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D-Form.Library", "D-Form.Library\D-Form.Library.csproj", "{9C983AF1-4D57-4983-A117-4753825DF62F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,14 +24,14 @@ Global
 		{0292E35A-B149-4DC0-8279-C1E801262B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0292E35A-B149-4DC0-8279-C1E801262B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0292E35A-B149-4DC0-8279-C1E801262B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B74821D-4624-42F4-906D-35887F49EAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B74821D-4624-42F4-906D-35887F49EAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B74821D-4624-42F4-906D-35887F49EAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B74821D-4624-42F4-906D-35887F49EAB2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C983AF1-4D57-4983-A117-4753825DF62F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C983AF1-4D57-4983-A117-4753825DF62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C983AF1-4D57-4983-A117-4753825DF62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C983AF1-4D57-4983-A117-4753825DF62F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9F5F808-C758-4EBC-A489-C37F1FC7EBCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9F5F808-C758-4EBC-A489-C37F1FC7EBCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9F5F808-C758-4EBC-A489-C37F1FC7EBCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9F5F808-C758-4EBC-A489-C37F1FC7EBCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
