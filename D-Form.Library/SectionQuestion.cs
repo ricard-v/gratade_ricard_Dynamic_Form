@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace D_Form.Library
 {
-    class SectionQuestion
+    public sealed class SectionQuestion:QuestionBase
     {
+        public SectionQuestion(string title,QuestionBase parent=null):base(title,parent)
+        {
+        }
     }
 }
