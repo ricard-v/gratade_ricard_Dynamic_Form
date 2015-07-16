@@ -12,6 +12,17 @@ namespace D_Form.Library
 
         private QuestionBase _parent;
 
+        private DForm _form;
+
+        virtual DForm Form 
+        {
+            get 
+            {
+                return _form != null ? _form : _parent.Form;
+            }
+           
+        }
+
         public int Index{get;internal set;}
         public QuestionBase Parent
         {
@@ -24,7 +35,6 @@ namespace D_Form.Library
                 _parent=value;
             }
         }
-
 
         public String Title
         {
@@ -39,9 +49,6 @@ namespace D_Form.Library
                 _title = value;
             }
         }
-
-        public 
-
     }
 }
  

@@ -6,11 +6,22 @@ using System.Threading.Tasks;
 
 namespace D_Form.Library
 {
-    public sealed class Questions
+    public sealed class QuestionRoot : QuestionBase
     {
         private readonly List<QuestionBase> _questions;
 
-        internal Questions()
+        private readonly DForm _form;
+
+        override DForm Form
+        {
+            get
+            {
+                return _form != null ? _form : null;
+            }
+
+        }
+
+        internal QuestionRoot()
         {
             _questions = new List<QuestionBase>();
         }
