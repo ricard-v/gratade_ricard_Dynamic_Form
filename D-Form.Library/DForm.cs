@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,29 @@ namespace D_Form.Library
 {
     public sealed class DForm
     {
+        private readonly string _author;
         private readonly DateTime _created;
         private readonly List<QuestionBase> _questions;
-        
-        public String Title { get; set; }
-        public String Author { get; set; }
+
+        private string _title;
+
+        public String Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                if( String.IsNullOrEmpty( value ) )
+                    throw new ArgumentException( "title", "title MUST NOT be NULL or EMPTY!" );
+                _title = value;
+                Version++;
+                LastModified = DateTime.UtcNow;
+            }
+        }
+
+        public String Author { get { return _author; } }
         public int Version { get; private set; }
 
         public DateTime Created { get { return _created; } }
@@ -30,8 +49,8 @@ namespace D_Form.Library
             _created = DateTime.UtcNow;
             LastModified = _created;
             Version = 0;
-            Title = title;
-            Author = author;
+            _title = title;
+            _author = author;
             _questions = new List<QuestionBase>();
         }
 
@@ -39,5 +58,6 @@ namespace D_Form.Library
             : this( "Undefined", "Undefined" )
         {
         }
+
     }
 }
