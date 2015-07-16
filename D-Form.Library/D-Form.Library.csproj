@@ -39,7 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswerBase.cs" />
+    <Compile Include="BinaryQuestion.cs" />
     <Compile Include="DForm.cs" />
+    <Compile Include="FormAnswer.cs" />
+    <Compile Include="MultipleChoiceQuestion.cs" />
+    <Compile Include="OpenAnswer.cs" />
     <Compile Include="OpenQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionBase.cs" />
