@@ -12,7 +12,7 @@ namespace D_Form.Library
 
         private readonly DForm _form;
 
-        override DForm Form
+        public override DForm Form
         {
             get
             {
@@ -21,9 +21,10 @@ namespace D_Form.Library
 
         }
 
-        internal QuestionRoot(string title):base(title)
+        internal QuestionRoot( DForm form )
+            : base( "Question Root" )
         {
-           
+            _form = form;
             _questions = new List<QuestionBase>();
         }
 

@@ -12,15 +12,15 @@ namespace D_Form.Library
 
         private QuestionBase _parent;
 
-        private DForm _form;
+        private readonly DForm _form;
 
-        virtual DForm Form 
+        public virtual DForm Form 
         {
             get 
             {
                 return _form != null ? _form : _parent.Form;
             }
-           
+            
         }
 
         public int Index{get;internal set;}
@@ -55,6 +55,7 @@ namespace D_Form.Library
         {
             if( String.IsNullOrEmpty( title ) )
                 throw new ArgumentException( "title", "title MUST NOT be NULL or EMPTY!" );
+            _form = null;
             _parent = parent;
             _title = title;
         }

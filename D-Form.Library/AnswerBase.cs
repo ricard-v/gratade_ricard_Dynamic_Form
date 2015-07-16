@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace D_Form.Library
 {
-    internal abstract class AnswerBase
+    public abstract class AnswerBase
     {
         private string _uniqueName;
 
