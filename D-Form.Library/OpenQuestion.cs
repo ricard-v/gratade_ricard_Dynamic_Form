@@ -9,5 +9,20 @@ namespace D_Form.Library
     public sealed class OpenQuestion : QuestionBase
     {
 
+        private bool _allowEmptyAnswer;
+
+
+        public bool AllowEmptyAnswer
+        {
+            get
+            {
+                return _allowEmptyAnswer;
+            }
+        }
+        public OpenQuestion(bool allowEmptyAnswer=false)
+        {
+            _allowEmptyAnswer = allowEmptyAnswer;
+        }
+
     }
 }

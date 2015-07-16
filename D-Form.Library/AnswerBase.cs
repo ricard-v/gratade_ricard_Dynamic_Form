@@ -8,6 +8,12 @@ namespace D_Form.Library
 {
     internal abstract class AnswerBase
     {
+        private string _uniqueName;
 
+        public string UniqueName
+        {
+            get { return _uniqueName; }
+            set { _uniqueName = value; }
+        }
     }
 }
