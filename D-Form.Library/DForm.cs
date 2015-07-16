@@ -37,7 +37,6 @@ namespace D_Form.Library
         public DateTime Created { get { return _created; } }
         public DateTime LastModified { get; private set; }
 
-        public List<QuestionBase> Questions { get { return _questions; } }
 
         public DForm(string title, string author)
         {
@@ -59,9 +58,5 @@ namespace D_Form.Library
         {
         }
 
-        public FormAnswer FindOrCreateAnswer(string answer)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
