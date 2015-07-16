@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace D_Form.Properties
+namespace D_Form.GUI.Properties
 {
 
 

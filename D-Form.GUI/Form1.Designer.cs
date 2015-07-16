@@ -1,4 +1,4 @@
-﻿namespace D_Form
+﻿namespace D_Form.GUI
 {
     partial class Form1
     {

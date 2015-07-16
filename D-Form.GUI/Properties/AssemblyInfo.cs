@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "D-Form" )]
+[assembly: AssemblyTitle( "D-Form.GUI" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
-[assembly: AssemblyProduct( "D-Form" )]
+[assembly: AssemblyProduct( "D-Form.GUI" )]
 [assembly: AssemblyCopyright( "Copyright ©  2015" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible( false )]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid( "c9c98092-1e25-4026-915d-e6b0bb1be4a4" )]
+[assembly: Guid( "6f274a21-d003-4b17-9e95-82d6570a9cd1" )]
 
 // Version information for an assembly consists of the following four values:
 //
