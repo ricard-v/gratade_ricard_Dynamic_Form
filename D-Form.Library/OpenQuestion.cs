@@ -19,7 +19,8 @@ namespace D_Form.Library
                 return _allowEmptyAnswer;
             }
         }
-        public OpenQuestion(bool allowEmptyAnswer=false)
+        public OpenQuestion(string title, bool allowEmptyAnswer=false)
+            : base (title)
         {
             _allowEmptyAnswer = allowEmptyAnswer;
         }
