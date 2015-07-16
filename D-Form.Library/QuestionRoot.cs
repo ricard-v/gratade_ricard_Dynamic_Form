@@ -21,8 +21,9 @@ namespace D_Form.Library
 
         }
 
-        internal QuestionRoot()
+        internal QuestionRoot(string title):base(title)
         {
+           
             _questions = new List<QuestionBase>();
         }
 
