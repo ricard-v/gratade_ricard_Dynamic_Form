@@ -11,7 +11,7 @@ namespace D_Form.Library
     {
         private readonly string _author;
         private readonly DateTime _created;
-        private readonly List<QuestionBase> _questions;
+        private readonly Questions _questions;
 
         private string _title;
 
@@ -36,7 +36,8 @@ namespace D_Form.Library
 
         public DateTime Created { get { return _created; } }
         public DateTime LastModified { get; private set; }
-
+        public Questions Questions { get { return _questions; } }
+        
 
         public DForm(string title, string author)
         {
@@ -50,7 +51,7 @@ namespace D_Form.Library
             Version = 0;
             _title = title;
             _author = author;
-            _questions = new List<QuestionBase>();
+            _questions = new Questions();
         }
 
         public DForm()

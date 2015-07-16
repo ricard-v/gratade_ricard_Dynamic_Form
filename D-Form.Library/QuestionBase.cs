@@ -49,6 +49,15 @@ namespace D_Form.Library
                 _title = value;
             }
         }
+        
+        
+        public QuestionBase(string title, QuestionBase parent = null)
+        {
+            if( String.IsNullOrEmpty( title ) )
+                throw new ArgumentException( "title", "title MUST NOT be NULL or EMPTY!" );
+            _parent = parent;
+            _title = title;
+        }
     }
 }
  

@@ -30,7 +30,8 @@ namespace D_Form.Library
         {
             if( question == null )
                 throw new ArgumentNullException( "question", "question MUST NOT be NULL!" );
-            
+            if( Contains( question ) )
+                throw new ArgumentException( "question", "question CANNOT be ADDED as it ALREADY EXISTS!" );
             _questions.Add( question );
         }
 
@@ -43,6 +44,13 @@ namespace D_Form.Library
             if( index == -1 )
                 throw new ArgumentException( "question", "question CANNOT BE REMOVED as it DOES NOT EXIST" );
             _questions.RemoveAt( index );
+        }
+
+        public bool Contains( QuestionBase question )
+        {
+            if( question == null )
+                throw new ArgumentNullException( "question", "question MUST NOT be NULL!" );
+            return _questions.Find( item => item.Title.Equals( question.Title, StringComparison.Ordinal ) ) != null;
         }
     }
 }
