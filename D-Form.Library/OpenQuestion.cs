@@ -31,5 +31,9 @@ namespace D_Form.Library
             _allowEmptyAnswer = false;
         }
 
+        internal override AnswerBase GetAnswerInstance(FormAnswer answerform)
+        {
+            return new OpenAnswer();
+        }
     }
 }

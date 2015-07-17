@@ -48,5 +48,10 @@ namespace D_Form.Library
             }
             else { return false; }
         }
+
+        internal override AnswerBase GetAnswerInstance(FormAnswer answerform)
+        {
+            return new MultipleChoiceAnswer();
+        }
     }
 }

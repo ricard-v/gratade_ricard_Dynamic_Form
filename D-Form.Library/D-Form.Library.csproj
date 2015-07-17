@@ -40,9 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerBase.cs" />
+    <Compile Include="BinaryAnswer.cs" />
     <Compile Include="BinaryQuestion.cs" />
     <Compile Include="DForm.cs" />
     <Compile Include="FormAnswer.cs" />
+    <Compile Include="MultipleChoiceAnswer.cs" />
     <Compile Include="MultipleChoiceQuestion.cs" />
     <Compile Include="OpenAnswer.cs" />
     <Compile Include="OpenQuestion.cs" />

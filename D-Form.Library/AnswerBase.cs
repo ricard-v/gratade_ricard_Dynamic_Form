@@ -10,10 +10,11 @@ namespace D_Form.Library
     {
         private string _uniqueName;
 
-        public string UniqueName
+        public string UniqueName{ get { return _uniqueName; }}
+
+        public AnswerBase(string uniqueName)
         {
-            get { return _uniqueName; }
-            set { _uniqueName = value; }
+            _uniqueName = uniqueName;
         }
     }
 }

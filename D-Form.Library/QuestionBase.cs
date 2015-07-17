@@ -13,9 +13,7 @@ namespace D_Form.Library
         private readonly DForm _form;
         internal readonly List<QuestionBase> questions;
 
-        private AnswerBase _answer;
-
-
+        internal virtual AnswerBase GetAnswerInstance();
         public virtual DForm Form 
         {
             get 
@@ -81,18 +79,7 @@ namespace D_Form.Library
         }
 
 
-        public AnswerBase Answer
-        {
-            get
-            {
-                return _answer;
-            }
-            set
-            {
-                _answer = value;
-            }
-        }
-
+       
         public QuestionBase(string title, QuestionBase parent = null)
         {
             if( String.IsNullOrEmpty( title ) )
