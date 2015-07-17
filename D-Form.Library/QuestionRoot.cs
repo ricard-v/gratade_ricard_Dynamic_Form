@@ -24,5 +24,17 @@ namespace D_Form.Library
         {
             _form = form;
         }
+
+        internal QuestionRoot(DForm form)
+            : base("Question Root")
+        {
+            _form = form;
+        }
+
+        internal QuestionRoot()
+            : base()
+        {
+            _form = null;
+        }
     }
 }

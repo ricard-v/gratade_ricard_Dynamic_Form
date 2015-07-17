@@ -5,8 +5,15 @@ using System.Text;
 
 namespace D_Form.Library
 {
-    class FormAnswer
+    public class FormAnswer
     {
+        public FormAnswer(string answer)
+        {
+        }
 
+        public AnswerBase AddAnswerFor( QuestionBase question)
+        {
+
+        }
     }
 }

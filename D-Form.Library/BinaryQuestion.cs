@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace D_Form.Library
 {
-    public sealed class BinaryQuestion
+    public sealed class BinaryQuestion:QuestionBase
     {
+        public BinaryQuestion(): base()
+        {
+
+        }
 
     }
 }

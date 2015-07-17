@@ -6,9 +6,22 @@ using System.Threading.Tasks;
 
 namespace D_Form.Library
 {
-    public sealed class MultipleChoiceQuestion
+    public sealed class MultipleChoiceQuestion:QuestionBase
     {
         private List<string> _choices;
+
+
+         public MultipleChoiceQuestion(string title,List<string> choices )
+            : base (title)
+        {
+            _choices = choices;
+        }
+
+         public MultipleChoiceQuestion()
+            : base()
+        {
+            _choices = new List<string>();
+        }
 
         public List<string> Choices
         {

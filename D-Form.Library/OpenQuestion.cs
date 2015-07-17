@@ -25,5 +25,11 @@ namespace D_Form.Library
             _allowEmptyAnswer = allowEmptyAnswer;
         }
 
+        public OpenQuestion()
+            : base()
+        {
+            _allowEmptyAnswer = false;
+        }
+
     }
 }

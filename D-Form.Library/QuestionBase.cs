@@ -13,6 +13,8 @@ namespace D_Form.Library
         private readonly DForm _form;
         internal readonly List<QuestionBase> questions;
 
+        private AnswerBase _answer;
+
 
         public virtual DForm Form 
         {
@@ -77,7 +79,20 @@ namespace D_Form.Library
                 }
             }
         }
-        
+
+
+        public AnswerBase Answer
+        {
+            get
+            {
+                return _answer;
+            }
+            set
+            {
+                _answer = value;
+            }
+        }
+
         public QuestionBase(string title, QuestionBase parent = null)
         {
             if( String.IsNullOrEmpty( title ) )
@@ -86,6 +101,14 @@ namespace D_Form.Library
             _form = null;
             _parent = parent;
             _title = title;
+        }
+
+        public QuestionBase()
+        {
+            questions = new List<QuestionBase>();
+            _form = null;
+            _parent = null;
+            _title = "default Titlte";
         }
 
 
