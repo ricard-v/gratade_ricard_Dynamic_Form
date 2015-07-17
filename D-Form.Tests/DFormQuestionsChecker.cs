@@ -51,7 +51,7 @@ namespace D_Form.Tests
         {
             DForm form = new DForm( "Title", "Nunit" );
 
-            Assert.Throws<ArgumentNullException>( () => form.Questions.AddNewQuestion( null ) );
+            OpenQuestion oq = (OpenQuestion)form.Questions.AddNewQuestion( typeof( OpenQuestion ) );
 
             QuestionBase q1 = new OpenQuestion( "First Question" );
             QuestionBase q2 = new OpenQuestion( "Second Question" );
