@@ -86,6 +86,36 @@ namespace D_Form.Tests
             Assert.IsNull( q1.Parent );
             Assert.IsFalse( form.Questions.Contains( q1 ) );
         }
+
+        [Test]
+        public void check_questions_index_changed()
+        {
+            DForm form = new DForm( "Title", "Nunit" );
+            QuestionBase q1 = new OpenQuestion( "1st Question" );
+            QuestionBase q2 = new OpenQuestion( "2nd Question" );
+            QuestionBase q3 = new OpenQuestion( "3rd Question" );
+            QuestionBase q4 = new OpenQuestion( "4th Question" );
+
+            q1.AddNewQuestion( q2 );
+            q1.AddNewQuestion( q3 );
+            q1.AddNewQuestion( q4 );
+            
+            Assert.That( q2.Index, Is.EqualTo( 0 ) );
+            Assert.That( q3.Index, Is.EqualTo( 1 ) );
+            Assert.That( q4.Index, Is.EqualTo( 2 ) );
+
+            Assert.Throws<ArgumentException>( () => q3.Index = -1 );
+
+            Assert.Throws<IndexOutOfRangeException>( () => q2.Index = 3 );
+            Assert.DoesNotThrow( () => q2.Index = 2 );
+            Assert.IsTrue( q2.Index == 2 && q4.Index == 1 );
+
+            Assert.DoesNotThrow( () => q2.Parent = null );
+            Assert.IsTrue( q2.Index == -1 && q1.Questions.Count == 2 );
+            
+            q2.Parent = q1;
+            Assert.IsTrue( q2.Index == q1.Questions.Count - 1 );
+        }
       
     }
 }

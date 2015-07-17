@@ -9,7 +9,6 @@ namespace D_Form.Library
     public abstract class QuestionBase
     {
         private string _title;
-        private int _index;
         private QuestionBase _parent;
         private readonly DForm _form;
         private readonly List<QuestionBase> _questions;
@@ -58,27 +57,24 @@ namespace D_Form.Library
         {
             get
             {
-                return _index;
+                if( _parent == null )
+                    return -1;
+                else
+                    return _parent.Questions.IndexOf( this );
             }
             set
             {
                 if( value < 0 )
                     throw new ArgumentException( "index", "index CANNOT be NEGATIVE" );
-                if( _parent.Questions.Count < value )
+                else if( value >=_parent.Questions.Count  )
                     throw new IndexOutOfRangeException( "index is out of range" );
-                if( value == _index )
+                else if( value == Index )
                     return;
-                if( _index != -1 )
+                else
                 {
-                    foreach (QuestionBase item in _parent.Questions)
-                        if (item.Index == value)
-                        {
-                            item.Index = _index;
-                            _index = value;
-                            break;
-                        }
+                    _parent.Questions.Remove( this );
+                    _parent.Questions.Insert( value, this );
                 }
-                _index = value;
             }
         }
 
@@ -92,7 +88,6 @@ namespace D_Form.Library
             _form = null;
             _parent = parent;
             _title = title;
-            _index = -1;
         }
 
 
