@@ -61,7 +61,7 @@ namespace D_Form.Library
 
         public FormAnswer CreateAnswer(string answer)
         {
-            FormAnswer formAnswer = new FormAnswer(answer);
+            FormAnswer formAnswer = new FormAnswer(answer,this);
             return formAnswer;
         }
     }
