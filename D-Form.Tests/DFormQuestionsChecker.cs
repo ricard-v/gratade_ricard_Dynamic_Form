@@ -51,7 +51,9 @@ namespace D_Form.Tests
         {
             DForm form = new DForm( "Title", "Nunit" );
 
-            OpenQuestion oq = (OpenQuestion)form.Questions.AddNewQuestion( typeof( OpenQuestion ) );
+            QuestionBase oq = form.Questions.AddNewQuestion( typeof( OpenQuestion ) );
+            Assert.IsInstanceOf( typeof( OpenQuestion ), oq );
+            Assert.AreEqual( form.Questions, oq.Parent );
 
             QuestionBase q1 = new OpenQuestion( "First Question" );
             QuestionBase q2 = new OpenQuestion( "Second Question" );

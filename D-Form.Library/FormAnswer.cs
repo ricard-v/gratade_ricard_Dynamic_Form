@@ -13,7 +13,7 @@ namespace D_Form.Library
 
         public AnswerBase AddAnswerFor( QuestionBase question)
         {
-
+            throw new NotImplementedException();
         }
     }
 }
