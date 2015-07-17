@@ -13,6 +13,8 @@ namespace D_Form.Library
         private readonly DateTime _created;
         private readonly QuestionRoot _questions;
 
+        private readonly List<FormAnswer> _formAnswers = new List<FormAnswer>();
+
         private string _title;
 
         public String Title
@@ -37,13 +39,14 @@ namespace D_Form.Library
         public DateTime Created { get { return _created; } }
         public DateTime LastModified { get; private set; }
         public QuestionRoot Questions { get { return _questions; } }
-        
+        public int AnswerCount { get { return _formAnswers.Count; } }
+
 
         public DForm(string title, string author)
         {
             if( String.IsNullOrEmpty( title ) )
                 throw new ArgumentException( "title", "title MUST NOT be NULL or EMPTY!" );
-            if( String.IsNullOrEmpty( title ) )
+            if( String.IsNullOrEmpty( author ) )
                 throw new ArgumentException( "author", "author MUST NOT be NULL or EMPTY!" );
 
             _created = DateTime.UtcNow;
@@ -59,10 +62,22 @@ namespace D_Form.Library
         {
         }
 
-        public FormAnswer CreateAnswer(string answer)
+        public FormAnswer FindOrCreateAnswer( String uniqueName )
         {
-            FormAnswer formAnswer = new FormAnswer(answer,this,null);
-            return formAnswer;
+            if( String.IsNullOrEmpty( uniqueName ) )
+                throw new ArgumentException( "uniqueName", "uniqueName MUST NOT be NULL or EMPTY!" );
+            FormAnswer toReturn = _formAnswers.Find( formAnswer => formAnswer.UniqueName.Equals( uniqueName, StringComparison.Ordinal ) );
+            if( toReturn == null )
+                toReturn = CreateAnswer( uniqueName );
+            return toReturn;
+        }
+
+        public FormAnswer CreateAnswer( string uniqueName )
+        {
+            if( String.IsNullOrEmpty( uniqueName ) )
+                throw new ArgumentException( "uniqueName", "uniqueName MUST NOT be NULL or EMPTY!" );
+            _formAnswers.Add( new FormAnswer( uniqueName, this ) );
+            return _formAnswers.LastOrDefault();
         }
     }
 }

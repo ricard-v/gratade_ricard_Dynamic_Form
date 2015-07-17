@@ -5,19 +5,26 @@ using System.Text;
 
 namespace D_Form.Library
 {
-    public sealed class FormAnswer :AnswerBase
+    public sealed class FormAnswer
     {
+        private readonly String _uniqueName;
+
         private DForm _form;
 
         private Dictionary<QuestionBase, AnswerBase> _answers;
 
+        public String UniqueName { get { return _uniqueName; } }
 
-
-        public FormAnswer(string uniqueName, DForm form,object answer)
-            : base(uniqueName, answer)
+        public FormAnswer(string author, DForm form)
         {
-            _answers = new Dictionary<QuestionBase, AnswerBase>();
+            if( String.IsNullOrEmpty( author ) )
+                throw new ArgumentException( "uniqueName", "uniqueName MUST NOT be NULL or EMPTY!" );
+            if( form == null )
+                throw new ArgumentNullException( "form", "form MUST NOT be NULL!" );
+
             _form = form;
+            _uniqueName = author;
+            _answers = new Dictionary<QuestionBase, AnswerBase>();
         }
    
         public AnswerBase AddAnswerFor( QuestionBase question)

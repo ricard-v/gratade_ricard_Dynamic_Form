@@ -93,5 +93,22 @@ namespace D_Form.Tests
             Assert.That( form.Version, Is.GreaterThan( previousVersion ), "Form Version = " + form.Version + " and Previous = " + previousVersion );
         }
 
+        [Test]
+        public void check_create_answers()
+        {
+            DForm form = new DForm();
+            FormAnswer a = form.FindOrCreateAnswer( "Emilie" );
+            Assert.IsNotNull( a );
+            FormAnswer b = form.FindOrCreateAnswer( "Emilie" );
+            Assert.AreSame( a, b );
+
+            Assert.AreEqual( 1, form.AnswerCount );
+            FormAnswer c = form.FindOrCreateAnswer( "John Doe" );
+            Assert.AreNotSame( a, c );
+
+            Assert.AreEqual( "Emilie", a.UniqueName );
+            Assert.AreEqual( "John Doe", c.UniqueName );
+        }
+
     }
 }
