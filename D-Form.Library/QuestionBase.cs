@@ -110,6 +110,15 @@ namespace D_Form.Library
             question.Parent = this;
         }
 
+        public QuestionBase AddNewQuestion(Type typeQuestion)
+        {
+            if( typeQuestion == null )
+                throw new ArgumentNullException( "typeQuestion", "typeQuestion MUST NOT be NULL!" );
+            QuestionBase instance = (QuestionBase)Activator.CreateInstance( typeQuestion );
+            instance.Parent = this;
+            return instance;
+        }
+
         public void RemoveQuestion( QuestionBase question )
         {
             if( question == null )
