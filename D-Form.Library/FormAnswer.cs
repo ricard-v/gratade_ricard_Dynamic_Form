@@ -20,7 +20,7 @@ namespace D_Form.Library
    
         public AnswerBase AddAnswerFor( QuestionBase question)
         {
-            AnswerBase answer = question.GetAnswerInstance();
+            AnswerBase answer = question.GetAnswerInstance(this);
             if( _answers.ContainsKey(question))
                 _answers[question] = answer;
             else

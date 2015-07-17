@@ -30,5 +30,10 @@ namespace D_Form.Library
         {
             _form = null;
         }
+
+        internal override AnswerBase GetAnswerInstance(FormAnswer answerform)
+        {
+            return new AnswerBase(answerform.UniqueName);
+        }
     }
 }

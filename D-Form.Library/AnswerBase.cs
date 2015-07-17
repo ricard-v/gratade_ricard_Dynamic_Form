@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace D_Form.Library
 {
-    public abstract class AnswerBase
+    public class AnswerBase
     {
         private string _uniqueName;
 
@@ -15,6 +15,10 @@ namespace D_Form.Library
         public AnswerBase(string uniqueName)
         {
             _uniqueName = uniqueName;
+        }
+        public AnswerBase()
+        {
+            _uniqueName = "Default";
         }
     }
 }

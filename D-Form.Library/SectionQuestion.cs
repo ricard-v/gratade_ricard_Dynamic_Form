@@ -11,5 +11,9 @@ namespace D_Form.Library
         public SectionQuestion(string title,QuestionBase parent=null):base(title,parent)
         {
         }
+        internal override AnswerBase GetAnswerInstance(FormAnswer answerform)
+        {
+            return new AnswerBase(answerform.UniqueName);
+        }
     }
 }

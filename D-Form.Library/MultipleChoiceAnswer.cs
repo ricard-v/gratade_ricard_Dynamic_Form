@@ -7,5 +7,6 @@ namespace D_Form.Library
 {
     class MultipleChoiceAnswer:AnswerBase
     {
+
     }
 }

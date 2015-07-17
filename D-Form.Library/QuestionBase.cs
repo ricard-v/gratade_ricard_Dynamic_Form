@@ -13,7 +13,7 @@ namespace D_Form.Library
         private readonly DForm _form;
         internal readonly List<QuestionBase> questions;
 
-        internal virtual AnswerBase GetAnswerInstance();
+        internal abstract AnswerBase GetAnswerInstance(FormAnswer answerForm);
         public virtual DForm Form 
         {
             get 
