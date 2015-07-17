@@ -11,7 +11,7 @@ namespace D_Form.Library
         private string _title;
         private QuestionBase _parent;
         private readonly DForm _form;
-        private readonly List<QuestionBase> _questions;
+        internal readonly List<QuestionBase> questions;
 
 
         public virtual DForm Form 
@@ -32,9 +32,9 @@ namespace D_Form.Library
             set
             {
                 if( _parent != null )
-                    _parent.Questions.Remove( this );
+                    _parent.questions.Remove( this );
                 if( value != null )
-                    value.Questions.Add( this );
+                    value.questions.Add( this );
                 _parent = value;
             }
         }
@@ -60,31 +60,29 @@ namespace D_Form.Library
                 if( _parent == null )
                     return -1;
                 else
-                    return _parent.Questions.IndexOf( this );
+                    return _parent.questions.IndexOf( this );
             }
             set
             {
                 if( value < 0 )
                     throw new ArgumentException( "index", "index CANNOT be NEGATIVE" );
-                else if( value >=_parent.Questions.Count  )
+                else if( value >= _parent.questions.Count )
                     throw new IndexOutOfRangeException( "index is out of range" );
                 else if( value == Index )
                     return;
                 else
                 {
-                    _parent.Questions.Remove( this );
-                    _parent.Questions.Insert( value, this );
+                    _parent.questions.Remove( this );
+                    _parent.questions.Insert( value, this );
                 }
             }
         }
-
-        public List<QuestionBase> Questions { get { return _questions; } }
         
         public QuestionBase(string title, QuestionBase parent = null)
         {
             if( String.IsNullOrEmpty( title ) )
                 throw new ArgumentException( "title", "title MUST NOT be NULL or EMPTY!" );
-            _questions = new List<QuestionBase>();
+            questions = new List<QuestionBase>();
             _form = null;
             _parent = parent;
             _title = title;

@@ -111,10 +111,10 @@ namespace D_Form.Tests
             Assert.IsTrue( q2.Index == 2 && q4.Index == 1 );
 
             Assert.DoesNotThrow( () => q2.Parent = null );
-            Assert.IsTrue( q2.Index == -1 && q1.Questions.Count == 2 );
+            Assert.IsTrue( q2.Index == -1 && !q1.Contains(q2) );
             
             q2.Parent = q1;
-            Assert.IsTrue( q2.Index == q1.Questions.Count - 1 );
+            Assert.AreEqual( 2, q2.Index );
         }
       
     }
