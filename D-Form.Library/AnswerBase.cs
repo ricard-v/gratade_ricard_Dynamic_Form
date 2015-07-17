@@ -12,9 +12,12 @@ namespace D_Form.Library
 
         public string UniqueName{ get { return _uniqueName; }}
 
-        public AnswerBase(string uniqueName)
+        private object _answer;
+
+        public AnswerBase(string uniqueName,object answer)
         {
             _uniqueName = uniqueName;
+            _answer = answer;
         }
         public AnswerBase()
         {

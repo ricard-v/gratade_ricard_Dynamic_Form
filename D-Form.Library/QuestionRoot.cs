@@ -33,7 +33,7 @@ namespace D_Form.Library
 
         internal override AnswerBase GetAnswerInstance(FormAnswer answerform)
         {
-            return new AnswerBase(answerform.UniqueName);
+            return new AnswerBase();
         }
     }
 }

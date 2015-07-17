@@ -11,8 +11,10 @@ namespace D_Form.Library
 
         private Dictionary<QuestionBase, AnswerBase> _answers;
 
-        public FormAnswer(string uniqueName, DForm form)
-            : base(uniqueName)
+
+
+        public FormAnswer(string uniqueName, DForm form,object answer)
+            : base(uniqueName, answer)
         {
             _answers = new Dictionary<QuestionBase, AnswerBase>();
             _form = form;
