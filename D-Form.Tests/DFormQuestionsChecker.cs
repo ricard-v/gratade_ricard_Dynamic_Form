@@ -118,6 +118,28 @@ namespace D_Form.Tests
             q2.Parent = q1;
             Assert.AreEqual( 2, q2.Index );
         }
-      
+
+        [Test]
+        public void LaTotale()
+        {
+            DForm f = new DForm("Title", "Nunit");
+
+            OpenQuestion qOpen=(OpenQuestion)f.Questions.AddNewQuestion(typeof(OpenQuestion));
+            qOpen.Title = "First Question in the World! ";
+            qOpen.AllowEmptyAnswer = false;
+
+            FormAnswer a = f.CreateAnswer("Emilie");
+            AnswerBase theAnswerOfEmilieToqOpen = a.FindAnswer(qOpen);
+            if ( theAnswerOfEmilieToqOpen==null)
+            {
+                theAnswerOfEmilieToqOpen = a.AddAnswerFor(qOpen);
+            }
+
+            Assert.IsInstanceOfType(typeof(OpenAnswer),theAnswerOfEmilieToqOpen);
+
+            OpenAnswer emilieAnswer = (OpenAnswer)theAnswerOfEmilieToqOpen;
+            emilieAnswer.FreeAnswer = "I'm very hapy to be here";
+        }
+
     }
 }
